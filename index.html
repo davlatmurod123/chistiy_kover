@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Чистый ковёр — мойка ковров с вывозом</title>
+<meta name="description" content="Заберём ковёр, помоем, высушим и привезём обратно. Заказ в WhatsApp, Telegram или по телефону.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg" aria-hidden="true">
+  <div class="glow g1"></div><div class="glow g2"></div>
+  <svg class="orn a" viewBox="0 0 200 200"><polygon points="100,4 196,100 100,196 4,100" fill="none" stroke="#0F2E57" stroke-width="3"/><polygon points="100,28 172,100 100,172 28,100" fill="none" stroke="#B3262B" stroke-width="3"/><polygon points="100,54 146,100 100,146 54,100" fill="#0F2E57"/><polygon points="100,76 124,100 100,124 76,100" fill="#E9A93B"/></svg>
+  <svg class="orn b" viewBox="0 0 200 200"><polygon points="100,4 196,100 100,196 4,100" fill="none" stroke="#B3262B" stroke-width="3"/><polygon points="100,34 166,100 100,166 34,100" fill="none" stroke="#0F2E57" stroke-width="3"/><polygon points="100,64 136,100 100,136 64,100" fill="#B3262B"/></svg>
+  <div id="bubbles"></div>
+</div>
+
+<!-- Ковёр: общий рисунок для «было» и «стало» -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="pDia" width="22" height="22" patternUnits="userSpaceOnUse">
+      <polygon points="11,3 19,11 11,19 3,11" fill="#F2E3C6"/>
+    </pattern>
+    <pattern id="pCross" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M18 10v16M10 18h16" stroke="#2D5A94" stroke-width="3" stroke-linecap="round"/>
+    </pattern>
+    <symbol id="rug" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice">
+      <rect width="600" height="400" fill="#B3262B"/>
+      <rect width="600" height="400" fill="url(#pDia)" opacity=".55"/>
+      <rect x="36" y="36" width="528" height="328" fill="#F2E3C6"/>
+      <rect x="44" y="44" width="512" height="312" fill="#0F2E57"/>
+      <rect x="44" y="44" width="512" height="312" fill="url(#pCross)" opacity=".7"/>
+      <polygon points="44,44 120,44 44,120" fill="#B3262B"/>
+      <polygon points="556,44 480,44 556,120" fill="#B3262B"/>
+      <polygon points="44,356 120,356 44,280" fill="#B3262B"/>
+      <polygon points="556,356 480,356 556,280" fill="#B3262B"/>
+      <polygon points="300,56 490,200 300,344 110,200" fill="#B3262B"/>
+      <polygon points="300,92 448,200 300,308 152,200" fill="#F2E3C6"/>
+      <polygon points="300,128 406,200 300,272 194,200" fill="#0F2E57"/>
+      <polygon points="300,160 360,200 300,240 240,200" fill="#E9A93B"/>
+      <circle cx="300" cy="200" r="14" fill="#B3262B"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="wrap top">
+  <a class="brand" href="#top" aria-label="На главную">
+    <!-- ЛОГО: ромб (узор ковра) + капля -->
+    <svg viewBox="0 0 48 48" aria-hidden="true">
+      <polygon points="24,2 46,24 24,46 2,24" fill="#B3262B"/>
+      <polygon points="24,8 40,24 24,40 8,24" fill="#F2E3C6"/>
+      <path d="M24 14c4 5.2 7 8.6 7 12.2A7 7 0 0 1 17 26.2C17 22.6 20 19.2 24 14z" fill="#0E7C93"/>
+      <path d="M21 27.5a3.2 3.2 0 0 0 2.6 3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    </svg>
+    <span class="brand-name" data-bind="name">Чистый ковёр</span>
+  </a>
+  <a class="top-phone" data-ch="tel" href="#"><span data-bind="phoneText"></span></a>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <h1 data-bind="heroTitle">Помоем ковёр и привезём обратно</h1>
+        <p class="lead" data-bind="heroText">Заберём, постираем, высушим и вернём чистым. Нажмите кнопку — сообщение уже написано, останется отправить.</p>
+        <div class="cta">
+          <a class="btn btn-wa" data-ch="wa" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            WhatsApp
+          </a>
+          <a class="btn btn-tg" data-ch="tg" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Telegram
+          </a>
+          <a class="btn btn-call" data-ch="tel" href="#">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Позвонить
+          </a>
+        </div>
+        <p class="note" data-bind="hours"></p>
+      </div>
+
+      <div class="ba" id="ba" role="group" aria-label="Ковёр до и после мойки">
+        <svg class="layer" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#rug" width="600" height="400"/></svg>
+        <div class="dirty-wrap">
+          <svg class="layer dirty" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <use href="#rug" width="600" height="400"/>
+            <ellipse cx="190" cy="150" rx="46" ry="30" fill="#3b2a1a" opacity=".5"/>
+            <ellipse cx="420" cy="270" rx="60" ry="34" fill="#3b2a1a" opacity=".45"/>
+            <ellipse cx="300" cy="215" rx="30" ry="18" fill="#2a1d12" opacity=".5"/>
+            <ellipse cx="110" cy="300" rx="34" ry="20" fill="#3b2a1a" opacity=".4"/>
+            <ellipse cx="500" cy="110" rx="28" ry="16" fill="#3b2a1a" opacity=".4"/>
+          </svg>
+        </div>
+        <span class="tag l">Было</span>
+        <span class="tag r">Стало</span>
+        <div class="handle"><i aria-hidden="true">‹›</i></div>
+        <input type="range" id="baRange" min="0" max="100" step="0.1" value="50" aria-label="Двигайте, чтобы сравнить ковёр до и после мойки">
+      </div>
+    </div>
+  </div>
+
+
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+    <path class="w2" d="M-60 30 Q 120 0 300 30 T 660 30 T 1020 30 T 1380 30 T 1740 30 V70 H-60Z"/>
+    <path d="M0 40 Q 180 8 360 40 T 720 40 T 1080 40 T 1440 40 V70 H0Z"/>
+  </svg>
+
+  <section>
+    <div class="wrap">
+      <h2>Как это работает</h2>
+      <ol class="steps">
+        <li><span class="n">1</span><div><b>Пишете нам</b><span>В мессенджер или звоните. Скажем цену и время.</span></div></li>
+        <li><span class="n">2</span><div><b>Забираем ковёр</b><span>Приезжаем в удобное для вас время.</span></div></li>
+        <li><span class="n">3</span><div><b>Моем и сушим</b><span>Выводим пятна, сушим до конца.</span></div></li>
+        <li><span class="n">4</span><div><b>Привозим обратно</b><span>Чистый ковёр у вас дома, платите на месте.</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Цены</h2>
+      <ul class="prices" id="prices"></ul>
+      <p class="prices-note" data-bind="priceNote"></p>
+    </div>
+  </section>
+
+  <section id="order">
+    <div class="wrap">
+      <h2>Соберите заявку за 10 секунд</h2>
+      <div class="order">
+        <div>
+          <div class="field">
+            <span class="lab">Что моем</span>
+            <div class="chips" id="chips"></div>
+          </div>
+          <div class="field">
+            <label for="area">Площадь, м² (примерно)</label>
+            <input type="number" id="area" inputmode="decimal" min="0" step="0.5" placeholder="Например, 6">
+            <div class="est" id="est" aria-live="polite"></div>
+          </div>
+          <div class="field">
+            <label class="check"><input type="checkbox" id="pickup" checked> Нужен вывоз и доставка</label>
+          </div>
+          <div class="field">
+            <label for="addr">Адрес или район</label>
+            <input type="text" id="addr" autocomplete="street-address" placeholder="Можно не писать сейчас">
+          </div>
+        </div>
+
+        <div class="panel">
+          <span class="lab">Сообщение, которое уйдёт нам</span>
+          <div class="bubble" id="bubble"></div>
+          <div class="cta">
+            <a class="btn btn-wa" data-ch="wa" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              WhatsApp
+            </a>
+            <a class="btn btn-tg" data-ch="tg" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Telegram
+            </a>
+            <a class="btn btn-call" data-ch="tel" href="#">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Позвонить
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b data-bind="name"></b>, <span data-bind="city"></span></span>
+    <span data-bind="hours"></span>
+  </div>
+</footer>
+
+<!-- Нижняя панель на телефоне: всегда под пальцем -->
+<nav class="bar" aria-label="Быстрая связь">
+  <a class="btn btn-wa" data-ch="wa" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    WhatsApp
+  </a>
+  <a class="btn btn-tg" data-ch="tg" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    Telegram
+  </a>
+  <a class="btn btn-call" data-ch="tel" href="#">
+    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Звонок
+  </a>
+</nav>
+
+<script src="config.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+const state = { type: null, area: "", pickup: true, addr: "" };
+
+/* тексты */
+$$('[data-bind="name"]').forEach(e => e.textContent = CONFIG.name);
+$$('[data-bind="city"]').forEach(e => e.textContent = CONFIG.city);
+$$('[data-bind="hours"]').forEach(e => e.textContent = CONFIG.hours);
+$$('[data-bind="heroTitle"]').forEach(e => e.textContent = CONFIG.heroTitle);
+$$('[data-bind="heroText"]').forEach(e => e.textContent = CONFIG.heroText);
+$$('[data-bind="priceNote"]').forEach(e => e.textContent = CONFIG.priceNote);
+$$('[data-bind="phoneText"]').forEach(e => e.textContent = CONFIG.phone);
+document.title = CONFIG.name + " — мойка ковров с вывозом";
+
+/* цены */
+$('#prices').innerHTML = CONFIG.types.map(t =>
+  `<li><span>${t.label}</span><span class="dots"></span><span class="v">${t.price} ${CONFIG.currency} / м²</span></li>`
+).join("");
+
+/* кнопки выбора типа */
+const chips = $('#chips');
+CONFIG.types.forEach((t, i) => {
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'chip'; b.textContent = t.label;
+  b.setAttribute('aria-pressed', 'false');
+  b.addEventListener('click', () => {
+    state.type = state.type === i ? null : i;
+    update();
+  });
+  chips.appendChild(b);
+});
+
+/* сообщение */
+function buildMessage(){
+  const t = state.type !== null ? CONFIG.types[state.type] : null;
+  let m = `${CONFIG.messageStart} Хочу помыть ${t ? t.what : "ковёр"}.`;
+  const area = parseFloat(String(state.area).replace(",", "."));
+  if (area > 0) m += ` Площадь примерно ${area} м².`;
+  if (state.pickup) m += " Нужен вывоз и доставка.";
+  if (state.addr.trim()) m += ` Адрес: ${state.addr.trim()}.`;
+  m += " " + CONFIG.messageEnd;
+  return m;
+}
+
+function update(){
+  [...chips.children].forEach((b, i) => b.setAttribute('aria-pressed', String(state.type === i)));
+
+  const msg = buildMessage();
+  $('#bubble').textContent = msg;
+
+  const enc = encodeURIComponent(msg);
+  const links = {
+    wa:  `https://wa.me/${CONFIG.whatsapp}?text=${enc}`,
+    tg:  `https://t.me/${CONFIG.telegram}?text=${enc}`,
+    tel: `tel:${CONFIG.phone}`
+  };
+  $$('[data-ch]').forEach(a => a.href = links[a.dataset.ch]);
+
+  const area = parseFloat(String(state.area).replace(",", "."));
+  const est = $('#est');
+  if (state.type !== null && area > 0){
+    const sum = Math.round(area * CONFIG.types[state.type].price);
+    est.textContent = `Примерно ${sum} ${CONFIG.currency}`;
+  } else {
+    est.textContent = "";
+  }
+}
+
+$('#area').addEventListener('input', e => { state.area = e.target.value; update(); });
+$('#pickup').addEventListener('change', e => { state.pickup = e.target.checked; update(); });
+$('#addr').addEventListener('input', e => { state.addr = e.target.value; update(); });
+update();
+
+/* слайдер до/после */
+const ba = $('#ba'), range = $('#baRange');
+function setP(v){ ba.style.setProperty('--p', v + '%'); range.value = v; }
+range.addEventListener('input', () => setP(range.value));
+
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (reduce){
+  setP(50);
+} else {
+  // один показательный проход при загрузке: показываем, что слайдер двигается
+  let start = null, touched = false;
+  range.addEventListener('pointerdown', () => touched = true, { once: true });
+  range.addEventListener('keydown', () => touched = true, { once: true });
+  const from = 92, to = 50, dur = 1600;
+  setP(from);
+  const ease = t => 1 - Math.pow(1 - t, 3);
+  function tick(ts){
+    if (touched) return;
+    if (start === null) start = ts;
+    const t = Math.min((ts - start) / dur, 1);
+    setP(from + (to - from) * ease(t));
+    if (t < 1) requestAnimationFrame(tick);
+  }
+  setTimeout(() => requestAnimationFrame(tick), 500);
+}
+
+/* пузыри пены */
+(function(){
+  const box = document.getElementById('bubbles');
+  const n = window.innerWidth < 760 ? 14 : 24;
+  for (let i = 0; i < n; i++){
+    const b = document.createElement('span');
+    b.className = 'bubble-f';
+    const size = 14 + Math.random() * 56;
+    b.style.width = b.style.height = size + 'px';
+    b.style.left = (Math.random() * 100) + '%';
+    b.style.setProperty('--sway', (Math.random() * 60 - 30) + 'px');
+    b.style.animationDuration = (12 + Math.random() * 16) + 's';
+    b.style.animationDelay = (-Math.random() * 20) + 's';
+    if (reduce) b.style.top = (Math.random() * 90) + '%';
+    box.appendChild(b);
+  }
+})();
+</script>
+</body>
+</html>
